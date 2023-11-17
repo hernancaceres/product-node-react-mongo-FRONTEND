@@ -1,5 +1,5 @@
 
-import  { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 function LoginForm() {
@@ -16,42 +16,32 @@ function LoginForm() {
       });
 
       const token = response.data.token;
-      
+
       // Guardar el token en el almacenamiento local o en el estado de la aplicación
       localStorage.setItem("token", token);
       console.log(token)
-      
     } catch (error) {
       console.error("Error de inicio de sesión:", error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Email:</label>
-        <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-      </div>
-      <div>
-        <label>Contraseña:</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      </div>
-      <button type="submit">Iniciar sesión</button>
-    </form>
+    <div className='container d-flex justify-content-center align-items-center h-100 text-light'>
+
+      <form onSubmit={handleSubmit}>
+        <div className='mb-3'>
+          <label className='form-label'>Email</label>
+          <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+        </div>
+        <div className='mb-3'>
+          <label className='form-label'>Password</label>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        </div>
+        <button type="submit" className='btn btn-outline-secondary'>Iniciar sesión</button>
+      </form>
+
+    </div>
   );
 }
 
 export default LoginForm;
-
-
-
-/*
-function LoginForm() {
-  
-  return (
-    <h1>login</h1>
-  );
-}
-
-export default LoginForm;
-*/

@@ -43,7 +43,7 @@ const CompShowUsuarios = () => {
                                     <td> {usuario.email} </td>
 
                                     <td>
-                                        <Link to={`/edit/${usuario._id}`} className='btn btn-info'><i className="fas fa-edit"></i></Link>
+                                        <Link to={`/edit/${usuario._id}`} className='btn btn-danger'><i className="fas fa-edit"></i></Link>
                                         <button onClick={() => deleteUsuario(usuario._id)} className='btn btn-danger'><i className="fas fa-trash-alt"></i></button>
                                     </td>
                                 </tr>

@@ -1,9 +1,10 @@
 import axios from 'axios'
 import { useState } from 'react'
 
-const URI = 'http://localhost:4000/api/signup'
+const URI = 'http://localhost:4000/api/product'
 
-const CompCreateUsuario = () => {
+const CompCreateProduct = () => {
+
     const [nombre, setNombre] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -18,7 +19,7 @@ const CompCreateUsuario = () => {
 
     return (
         <div className='container d-flex justify-content-center align-items-center h-100 text-light'>
-            <div className="form bg-dark">
+            
                 <form onSubmit={store}>
                     <div className='mb-3'>
                         <label className='form-label'>Nombre</label>
@@ -49,9 +50,9 @@ const CompCreateUsuario = () => {
                     </div>
                     <button type='submit' className='btn btn-outline-secondary border-0'>Crear Usuario</button>
                 </form>
-            </div>
+            
         </div>
-    )
+    );
 }
 
-export default CompCreateUsuario
+export default CompCreateProduct
