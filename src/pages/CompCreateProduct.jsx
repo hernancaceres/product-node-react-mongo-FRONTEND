@@ -1,56 +1,63 @@
 import axios from 'axios'
 import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 
-const URI = 'http://localhost:4000/api/product'
+const URI = 'http://localhost:4000/api/products'
 
 const CompCreateProduct = () => {
 
-    const [nombre, setNombre] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [name, setName] = useState('')
+    const [category, setCategory] = useState('')
+    const [price, setPrice] = useState('')
+    const navigate = useNavigate();
+
 
     //procedimiento guardar
     const store = async (e) => {
         e.preventDefault()
-        await axios.post(URI, { username: nombre, email: email, password: password },
+        await axios.post(URI, { name: name, category: category, price: price },
             { headers: { 'x-access-token': localStorage.getItem('token'), }, }
         );
+
+        // Redirige a la página productos
+        navigate('/productos');
     }
+
 
     return (
         <div className='container d-flex justify-content-center align-items-center h-100 text-light'>
-            
-                <form onSubmit={store}>
-                    <div className='mb-3'>
-                        <label className='form-label'>Nombre</label>
-                        <input
-                            value={nombre}
-                            onChange={(e) => setNombre(e.target.value)}
-                            type="text"
-                            className='form-control'
-                        />
-                    </div>
-                    <div className='mb-3'>
-                        <label className='form-label'>Email</label>
-                        <input
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            type="text"
-                            className='form-control'
-                        />
-                    </div>
-                    <div className='mb-3'>
-                        <label className='form-label'>Password</label>
-                        <input
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            type="text"
-                            className='form-control'
-                        />
-                    </div>
-                    <button type='submit' className='btn btn-outline-secondary border-0'>Crear Usuario</button>
-                </form>
-            
+
+            <form onSubmit={store}>
+                <div className='mb-3'>
+                    <label className='form-label'>Nombre</label>
+                    <input
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        type="text"
+                        className='form-control'
+                    />
+                </div>
+                <div className='mb-3'>
+                    <label className='form-label'>Categoría</label>
+                    <input
+                        value={category}
+                        onChange={(e) => setCategory(e.target.value)}
+                        type="text"
+                        className='form-control'
+                    />
+                </div>
+                <div className='mb-3'>
+                    <label className='form-label'>Precio</label>
+                    <input
+                        value={price}
+                        onChange={(e) => setPrice(e.target.value)}
+                        type="text"
+                        className='form-control'
+                    />
+                </div>
+                <button type='submit' className='btn btn-outline-secondary border-0'>Crear Producto</button>
+            </form>
+
         </div>
     );
 }

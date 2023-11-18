@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const URI = 'http://localhost:4000/api/usuarios'
+const URI = 'http://localhost:4000/api/usuarios/'
 
 const CompShowUsuarios = () => {
 
@@ -27,9 +27,9 @@ const CompShowUsuarios = () => {
         <div className='container'>
             <div className='row'>
                 <div className='col'>
-                    <Link to="/register" className='btn btn-primary mt-2 mb-2'><i className="fas fa-plus"></i></Link>
+                    <Link to="/register" className="btn btn-outline-secondary"><i className="fas fa-plus"></i></Link>
                     <table className='table'>
-                        <thead className='table-primary'>
+                        <thead >
                             <tr>
                                 <th>Nombre</th>
                                 <th>Email</th>
