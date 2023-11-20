@@ -33,7 +33,6 @@ const ProductDetail = () => {
 
   return (
     <div className="product-detail">
-      <img src={product.image} alt={product.name} />
       <h2>{product.name}</h2>
       <p>{product.category}</p>
       <p>{product.price}</p>

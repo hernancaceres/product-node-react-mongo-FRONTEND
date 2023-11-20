@@ -1,4 +1,4 @@
-.App {
+/* .App {
     font-family: 'Oxygen', sans-serif;
     height: 100vh;
     background: rgb(238, 69, 64);
@@ -10,4 +10,30 @@
       rgba(81, 10, 50, 1) 45%,
       rgba(45, 20, 44, 1) 100%
     );
+  } */
+
+  #Dark{
+    background-color: #282c34;
+    color: white;
   }
+  
+  #Dark a{
+    color: white;
+  }
+  #Light a{
+    color: rgb(10, 7, 53);
+  }
+  
+  #Light{
+    background-color: #d9dbdf;
+    color: rgb(10, 7, 53);
+  }
+
+
+  .list li{
+    display:inline-block;
+    padding-left:3px;
+    padding-right:3px;
+  }
+
+

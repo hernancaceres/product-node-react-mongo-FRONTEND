@@ -21,6 +21,7 @@ const ProductList = () => {
   }, []);
 
   const addToCart = (product) => {
+    console.log('Adding to cart productDetails:', product);
     // Dispatch para agregar al carrito
     dispatch({ type: 'ADD_TO_CART', payload: { id: product._id, name: product.name, category: product.category, price: product.price } });
   };
@@ -29,7 +30,6 @@ const ProductList = () => {
     <div className="product-list">
       {products.map((product) => (
         <div key={product._id} className="product">
-          <img src={product.image} alt={product.name} />
           <h3>{product.name}</h3>
           <h3>{product.category}</h3>
           <p>{product.price}</p>

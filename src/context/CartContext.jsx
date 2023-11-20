@@ -6,6 +6,7 @@ const CartContext = createContext();
 const cartReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_TO_CART':
+      console.log('Reducer: Adding to cart:', action.payload);
       // Lógica para agregar productos al carrito
       return {
         ...state,
@@ -20,14 +21,19 @@ const cartReducer = (state, action) => {
 export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, { cartItems: [] });
 
+  console.log('Cart context state:', state);
+
   return (
-    <CartContext.Provider value={{ ...state, dispatch }}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{ ...state, dispatch }}>
+      {children}
+    </CartContext.Provider>
   );
 };
 
 CartProvider.propTypes = {
     children: PropTypes.node.isRequired,
   };
+
 
 export const useCart = () => {
   const context = useContext(CartContext);
